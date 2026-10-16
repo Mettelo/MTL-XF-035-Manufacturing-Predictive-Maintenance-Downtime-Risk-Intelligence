@@ -1,6 +1,6 @@
 # MTL-XF-035 — Manufacturing Predictive Maintenance Downtime Risk Intelligence
 
-**Track:** Cross-Functional · **Sector:** Private-sector commercial operations · **Team:** 6–8 · **Duration:** 8 weeks
+**Track:** Cross-Functional · **Sector:** Private-sector commercial operations · **Team:** 3–5 · **Duration:** 8 weeks
 
 ## The business problem
 

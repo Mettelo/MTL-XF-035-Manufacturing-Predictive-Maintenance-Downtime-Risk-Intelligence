@@ -36,37 +36,57 @@ Profile types, nulls, duplicates, sentinels, labels, units and source support. A
 
 **Pass evidence:** Every treatment has affected count, reason, owner and reviewer; no silent row loss or coercion.
 
-## D5 — KPI catalogue and lineage
+## D5 — Operating-condition and failure-mode ledger
 
-**Due:** Week 4 · **Owner:** Reliability and Maintenance Analyst · **Team location:** docs/05-kpi-catalogue/
+**Due:** Week 4 · **Owner:** Reliability and Maintenance Analyst · **Business reviewer:** Plant Maintenance Manager · **Independent reviewer:** Operational Model Assurance Analyst
 
-Implement K1–K7 below with actual source fields, code, valid population, denominator, units, grain, exclusions, owner and worked examples.
+**Required artefact:** data/curated/operating-condition-and-failure-mode-ledger.csv and docs/05-kpi-catalogue/operating-condition-and-failure-mode-ledger.md.
 
-**Pass evidence:** All seven reviewed; K1–K5 reconcile independently and in BI on full cohort and one filtered slice.
+All source UDI records, six operational predictors, Machine failure and five separate mode flags; units, overlap counts and quality exceptions.
 
-## D6 — Analysis and evaluation
+**Mandatory pass condition (SC1):** 10,000 source observations accounted for; overlapping modes never inflate unique machine-failure count; Kelvin/rpm/Nm/min retained correctly.
 
-**Due:** Week 6 · **Owner:** Data Scientist / Decision Modelling Analyst · **Team location:** docs/06-analysis/
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
 
-First 60%, next 20%, last 20% of original UDI order to expose sequential structure; document class counts and any single-class split limitation. Train-only preprocessing; exclude identifiers and all five failure-mode flags. Add stratified seed-35 split as sensitivity only, not a replacement for weak ordered results.
 
-**Pass evidence:** Baseline and alternative results, population/class counts, uncertainty, negative findings and feature/timing audit retained; no test-driven tuning.
+## D6 — Leakage-controlled failure classification
 
-## D7 — Decision policy and action register
+**Due:** Week 6 · **Owner:** Data Scientist / Decision Modelling Analyst · **Business reviewer:** Plant Maintenance Manager · **Independent reviewer:** Operational Model Assurance Analyst
 
-**Due:** Week 6 · **Owner:** Reliability and Maintenance Analyst · **Team location:** docs/07-decision-framework/
+**Required artefact:** docs/06-analysis/leakage-controlled-failure-classification.md plus machine-readable evaluation_results.csv.
 
-Compare a tool-wear rule (Tool wear≥200 min, project baseline) against model top 5% inspection risk ranking. Show top 2%, 5%, 10% capacity scenarios; threshold/capacity is chosen on validation only. Missed-failure:inspection cost ratios 10:1 and 50:1 are assumptions.
+Ordered holdout baseline/model report, predictor allowlist, class counts, recall/precision and stratified sensitivity appendix.
 
-**Pass evidence:** Both policies and sensitivity outputs supplied; every action has evidence, eligibility, owner, next review and uncertainty. Include a defer case.
+**Mandatory pass condition (SC2):** No IDs or TWF/HDF/PWF/OSF/RNF predictors; no invented future horizon; undefined recall in single-class holdouts blocks a model recommendation.
 
-## D8 — Dashboard / decision prototype
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
 
-**Due:** Week 7 · **Owner:** BI / Decision Product Developer · **Team location:** dashboard/
 
-Four linked views: K1–K7 executive overview, source-supported diagnostics, policy/action comparison and quality/limitations for Plant Maintenance Manager.
+## D7 — Inspection capacity and assumed cost workbook
 
-**Pass evidence:** Five metric/filter checks pass; frozen scope and limitations survive export; static copy/user guide require no paid access.
+**Due:** Week 6 · **Owner:** Reliability and Maintenance Analyst · **Business reviewer:** Plant Maintenance Manager · **Independent reviewer:** Operational Model Assurance Analyst
+
+**Required artefact:** docs/07-decision-framework/inspection-capacity-and-assumed-cost-workbook.csv plus policy.md.
+
+Tool wear≥200 baseline and ranked lists at 2/5/10% capacity; captured/missed failures, inspection count, precision and cost ratios 10:1/50:1.
+
+**Mandatory pass condition (SC3):** List sizes floor(capacity×eligible N), deterministic UDI ties; costs reproducible and synthetic; top-ten case register includes sensor signals and review action.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
+
+## D8 — Maintenance planning dashboard
+
+**Due:** Week 7 · **Owner:** BI / Decision Product Developer · **Business reviewer:** Plant Maintenance Manager · **Independent reviewer:** Operational Model Assurance Analyst
+
+**Required artefact:** dashboard/README.md, runnable dashboard/prototype and static review export.
+
+Type/condition overview, capacity trade-off, worklist and data/model limitations.
+
+**Mandatory pass condition (SC4):** Reviewer locates a flagged failure, a false inspection and a missed failure, and explains how the list changes when capacity moves from 5% to 10%.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
 
 ## D9 — Independent assurance and UAT
 
@@ -84,13 +104,18 @@ One documented run entry point, dependency versions, manifest, output checksums/
 
 **Pass evidence:** Second member reproduces all seven KPIs and policy queue from approved bytes; environment, elapsed time and discrepancies recorded.
 
-## D11 — Executive recommendation
+## D11 — Maintenance operating and validation pack
 
-**Due:** Week 8 · **Owner:** Delivery Lead + domain specialist · **Team location:** deliverables/
+**Due:** Week 8 · **Owner:** Business Analyst / Delivery Lead with domain specialist · **Business reviewer:** Plant Maintenance Manager · **Independent reviewer:** Operational Model Assurance Analyst
 
-8–12 slides and a 5–10-minute demo answering Select a sensor-risk inspection policy and specify the real plant data needed to validate advance warning. Include five evidence-linked findings, three next actions, comparison and a defer case.
+**Required artefact:** deliverables/maintenance-operating-and-validation-pack.pdf plus editable slides and supporting cards/runbook.
 
-**Pass evidence:** Every numeric claim links tested evidence; costs/benefits and operational targets are labelled assumptions unless measured.
+Ten-case inspection procedure, review/escalation/deferral rules and real-plant collection plan including timestamps, machine IDs, downtime and repair cost.
+
+**Mandatory pass condition (SC5):** Every case has accountable maintenance role and next check; no claimed lead time/savings; specify pilot comparator, observation window and safety review before plant action.
+
+**Review evidence:** retain the actual output, source-to-field/code/configuration lineage, expected/actual verification, reviewer and date. A heading, screenshot or unsupported claim alone cannot satisfy this deliverable.
+
 
 ## D12 — Contribution and final submission
 

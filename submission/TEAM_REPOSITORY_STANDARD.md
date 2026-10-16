@@ -24,3 +24,13 @@ Assign named people to all seven [brief roles](../project/PROJECT_BRIEF.md). Eve
 Interpret sensor units, design a ten-case inspection worklist and specify condition-check, maintenance deferral and escalation actions.
 
 Maintain D1–D12/AC1–AC12/DT1–DT10 evidence index with owner, distinct reviewer, state and final-commit path. Connect numeric claims to frozen source and code/configuration. Record all manual adjustments, excluded cases and limitations; preserve an insufficient-evidence case.
+
+## Required business-output artefacts
+
+- **D5 Operating-condition and failure-mode ledger:** data/curated/operating-condition-and-failure-mode-ledger.csv and docs/05-kpi-catalogue/operating-condition-and-failure-mode-ledger.md.
+- **D6 Leakage-controlled failure classification:** docs/06-analysis/leakage-controlled-failure-classification.md plus machine-readable evaluation_results.csv.
+- **D7 Inspection capacity and assumed cost workbook:** docs/07-decision-framework/inspection-capacity-and-assumed-cost-workbook.csv plus policy.md.
+- **D8 Maintenance planning dashboard:** dashboard/README.md, runnable dashboard/prototype and static review export.
+- **D11 Maintenance operating and validation pack:** deliverables/maintenance-operating-and-validation-pack.pdf plus editable slides and supporting cards/runbook.
+
+Index these under SC1–SC5 with author, distinct reviewer, executed result and final commit. Treat these paths as the default delivery contract; an equivalent tool-specific format requires an explicit documented mapping.

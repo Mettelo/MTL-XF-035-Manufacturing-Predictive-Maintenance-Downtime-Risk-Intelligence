@@ -6,9 +6,33 @@ This is a simulated confidential-client engagement using public/open data. Stake
 
 ## Problem and commission
 
-Maintenance staff need a defensible way to allocate limited inspection capacity. A synthetic failure dataset allows comparison of sensor-based warning rules and classifiers, but has no actual downtime duration, repair cost or verified advance failure horizon.
+The plant maintenance manager has limited inspection slots and needs to decide which operating observations deserve attention first. A simple tool-wear trigger is understandable but may miss failure patterns associated with temperature, speed and torque; a model may capture more failures but create unnecessary inspections. The synthetic dataset supports this inspection-allocation comparison, not proof of advance warning, actual downtime reduction or remaining useful life.
 
 > Select a sensor-risk inspection policy and specify the real plant data needed to validate advance warning.
+
+## Practical use case and business outputs
+
+In weekly maintenance planning, the manager compares the tool-wear baseline with risk-ranked inspection lists at 2%, 5% and 10% capacity, reviews missed failures and false inspections, and approves a supervised plant-data validation plan.
+
+| Deliverable | What the team must hand over | Required contents |
+| --- | --- | --- |
+| D5 | Operating-condition and failure-mode ledger | All source UDI records, six operational predictors, Machine failure and five separate mode flags; units, overlap counts and quality exceptions. |
+| D6 | Leakage-controlled failure classification | Ordered holdout baseline/model report, predictor allowlist, class counts, recall/precision and stratified sensitivity appendix. |
+| D7 | Inspection capacity and assumed cost workbook | Tool wear≥200 baseline and ranked lists at 2/5/10% capacity; captured/missed failures, inspection count, precision and cost ratios 10:1/50:1. |
+| D8 | Maintenance planning dashboard | Type/condition overview, capacity trade-off, worklist and data/model limitations. |
+| D11 | Maintenance operating and validation pack | Ten-case inspection procedure, review/escalation/deferral rules and real-plant collection plan including timestamps, machine IDs, downtime and repair cost. |
+
+## Required success contract
+
+| Success ID | Required deliverable | Specific pass condition |
+| --- | --- | --- |
+| SC1 | D5 — Operating-condition and failure-mode ledger | 10,000 source observations accounted for; overlapping modes never inflate unique machine-failure count; Kelvin/rpm/Nm/min retained correctly. |
+| SC2 | D6 — Leakage-controlled failure classification | No IDs or TWF/HDF/PWF/OSF/RNF predictors; no invented future horizon; undefined recall in single-class holdouts blocks a model recommendation. |
+| SC3 | D7 — Inspection capacity and assumed cost workbook | List sizes floor(capacity×eligible N), deterministic UDI ties; costs reproducible and synthetic; top-ten case register includes sensor signals and review action. |
+| SC4 | D8 — Maintenance planning dashboard | Reviewer locates a flagged failure, a false inspection and a missed failure, and explains how the list changes when capacity moves from 5% to 10%. |
+| SC5 | D11 — Maintenance operating and validation pack | Every case has accountable maintenance role and next check; no claimed lead time/savings; specify pilot comparator, observation window and safety review before plant action. |
+
+[Detailed acceptance](ACCEPTANCE_CRITERIA.md) defines executed evidence; [deliverables](DELIVERABLES.md) defines exact artefacts and ownership. G1 records simulated sponsor approval, not invented real-client agreement.
 
 ## Core scope
 
